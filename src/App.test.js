@@ -47,4 +47,36 @@ test('probando botón 1 texto', () => {
   render(<App />);
   const boton1 = screen.getByRole('button', { name: "Botón 1"});
   expect(boton1.textContent).toBe('Botón 1');
+  expect(boton1).toBeEnabled();
+});
+
+test('probando botón Change to blue', () => {
+  render(<App />);
+  const boton1 = screen.getByRole('button', { name: "Change to blue"});
+  fireEvent.click(boton1);
+  expect(boton1).toBeInTheDocument();
+  expect(boton1).toHaveStyle({ backgroundColor: 'blue' });
+  expect(boton1).toBeEnabled();
+
+});
+
+
+test('probando checkbox', () => {
+  render(<App />);
+  const checkbox = screen.getByRole('checkbox');
+  expect(checkbox).not.toBeChecked();
+});
+
+test('probando checkbox', () => {
+  render(<App />);
+  const boton1 = screen.getByRole('button', { name: "Change to blue"});
+  const checkbox = screen.getByRole('checkbox');
+  fireEvent.click(checkbox);
+  expect(boton1).toBeDisabled();
+  expect(checkbox).toBeChecked();
+
+  fireEvent.click(checkbox);
+  expect(boton1).toBeEnabled();
+  expect(checkbox).not.toBeChecked();
+
 });

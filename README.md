@@ -4,6 +4,8 @@ https://create-react-app.dev/
 ### curso udemy
 Testing React with Jest and React Testing Library (RTL)
 
+### ejemplos de pruebas unitarias react
+https://github.com/bonnie/udemy-TESTING-LIBRARY/tree/main/react-code
 
 ### comandos
 npx create-react-app color-button

@@ -1,12 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { Component } from "react";
-
+import { useState } from 'react';
 class App extends Component {
   constructor() {
     super();
     this.color = 'red';
     this.simpleClick = this.simpleClick.bind(this);
+    this.state = {
+      buttonColor: 'red',
+      disabled:false
+    }
   }
   simpleClick(){
     console.log('simpleClick');
@@ -15,6 +19,7 @@ class App extends Component {
     this.color = 'blue';
   }
   render() {
+    const newButtonColor = this.state.buttonColor === 'red' ? 'blue' : 'red';
     const inputText = 'texto1';
     return (
       <div className="App">
@@ -33,6 +38,13 @@ class App extends Component {
           </a>
           <input style={{backgroundColor: this.color}} value={inputText} />
           <button onClick={() => {this.simpleClick();}}>Botón 1</button>
+          <button disabled={this.state.disabled} style={{backgroundColor: this.state.buttonColor}}
+            onClick={() => this.setState({ buttonColor: newButtonColor })}>Change to {newButtonColor}</button>
+          <input
+            id="disable-button-checkbox"
+            defaultChecked={this.state.disabled}
+            onChange={(e) => this.setState({ disabled: e.target.checked }) } 
+            type="checkbox" />
         </header>
       </div>
     );
@@ -40,6 +52,8 @@ class App extends Component {
 }
 
 function App2() {
+  const [ buttonColor, setButtonColor ] = useState('red');
+  const newButtonColor = buttonColor === 'red' ? 'blue' : 'red';
   return (
     <div className="App">
       <header className="App-header">
@@ -56,6 +70,10 @@ function App2() {
           Learn React
         </a>
         <input style={{backgroundColor: 'red'}} value="texto1" />
+        <button style={{backgroundColor: newButtonColor}}
+            onClick={() => setButtonColor(buttonColor)}>
+              Change to {newButtonColor}
+            </button>
       </header>
     </div>
   );
