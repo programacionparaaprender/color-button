@@ -3,8 +3,19 @@ import './App.css';
 import React, { Component } from "react";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.color = 'red';
+    this.simpleClick = this.simpleClick.bind(this);
+  }
+  simpleClick(){
+    console.log('simpleClick');
+    let boton1 = document.querySelector('input');
+    boton1.style.backgroundColor = 'blue';
+    this.color = 'blue';
+  }
   render() {
-    const inputText = 'texto1'
+    const inputText = 'texto1';
     return (
       <div className="App">
         <header className="App-header">
@@ -20,7 +31,8 @@ class App extends Component {
           >
             Learn React
           </a>
-          <input style={{backgroundColor: 'red'}} value={inputText} />
+          <input style={{backgroundColor: this.color}} value={inputText} />
+          <button onClick={() => {this.simpleClick();}}>Botón 1</button>
         </header>
       </div>
     );

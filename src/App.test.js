@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { logRoles } from '@testing-library/dom';
 import App from './App';
 
@@ -22,4 +22,29 @@ test('probando texto de input', () => {
   expect(inputElement2).toBeInTheDocument();
   expect(inputElement2).toHaveStyle({ backgroundColor: 'red' });
   //throw new Error('test failed');
+});
+
+test('probando botón 1', () => {
+  render(<App />);
+  const boton1 = screen.getByRole('button', { name: "Botón 1"});
+  expect(boton1).toBeInTheDocument();
+  boton1.click();
+
+  const inputElement2 = screen.getByRole('textbox', {value: /texto1/i });
+  expect(inputElement2).toBeInTheDocument();
+  expect(inputElement2).toHaveStyle({ backgroundColor: 'blue' });
+});
+test('probando botón 1 test dos', () => {
+  render(<App />);
+  const boton1 = screen.getByRole('button', { name: "Botón 1"});
+  fireEvent.click(boton1);
+  const inputElement2 = screen.getByRole('textbox', {value: /texto1/i });
+  expect(inputElement2).toBeInTheDocument();
+  expect(inputElement2).toHaveStyle({ backgroundColor: 'blue' });
+});
+
+test('probando botón 1 texto', () => {
+  render(<App />);
+  const boton1 = screen.getByRole('button', { name: "Botón 1"});
+  expect(boton1.textContent).toBe('Botón 1');
 });
