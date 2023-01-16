@@ -2,13 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 import React, { Component } from "react";
 import { useState } from 'react';
+
+export function replaceCamelWithSpaces(colorName) {
+  return colorName.replace(/\B([A-Z])\B/g, " $1");
+}
+
 class App extends Component {
   constructor() {
     super();
     this.color = 'red';
     this.simpleClick = this.simpleClick.bind(this);
     this.state = {
-      buttonColor: 'red',
+      buttonColor: "MediumVioletRed",
       disabled:false
     }
   }
@@ -19,7 +24,8 @@ class App extends Component {
     this.color = 'blue';
   }
   render() {
-    const newButtonColor = this.state.buttonColor === 'red' ? 'blue' : 'red';
+    const newButtonColor =
+    this.state.buttonColor === "MediumVioletRed" ? "MidnightBlue" : "MediumVioletRed";
     const inputText = 'texto1';
     return (
       <div className="App">
@@ -38,13 +44,14 @@ class App extends Component {
           </a>
           <input style={{backgroundColor: this.color}} value={inputText} />
           <button onClick={() => {this.simpleClick();}}>Botón 1</button>
-          <button disabled={this.state.disabled} style={{backgroundColor: this.state.buttonColor}}
-            onClick={() => this.setState({ buttonColor: newButtonColor })}>Change to {newButtonColor}</button>
+          <button disabled={this.state.disabled} style={{backgroundColor: this.state.disabled?'gray':this.state.buttonColor}}
+            onClick={() => this.setState({ buttonColor: newButtonColor })}>Change to {replaceCamelWithSpaces(newButtonColor)}</button>
           <input
             id="disable-button-checkbox"
             defaultChecked={this.state.disabled}
             onChange={(e) => this.setState({ disabled: e.target.checked }) } 
             type="checkbox" />
+            <label htmlFor="disable-button-checkbox">Disable button</label>
         </header>
       </div>
     );
