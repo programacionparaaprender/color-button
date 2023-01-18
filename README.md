@@ -1,23 +1,62 @@
 ### página
+
 https://create-react-app.dev/
 
 ### curso udemy
+
 Testing React with Jest and React Testing Library (RTL)
+react-testing-library
+
+### para eslint
+
+.eslintrc.json
+{
+"plugins":[
+"testing-library",
+"jest-dom"
+],
+"extends":[
+"react-app",
+"react-app/jest",
+"plugin:testing-library/react",
+"plugin:jest-dom/recommended"
+]
+}
+
+.vscode/settings.json
+{
+"editor.codeActionsOnSave": {
+"source.fixAll.eslint": true
+},
+"editor.defaultFormatter": "esbenp.prettier-vscode",
+"editor.formatOnSave": true
+}
 
 ### ejemplos de pruebas unitarias react
+
 https://github.com/bonnie/udemy-TESTING-LIBRARY/tree/main/react-code
 
+### instalar eslint
+
+https://github.com/testing-library/eslint-plugin-testing-library
+https://github.com/testing-library/eslint-plugin-jest-dom
+https://github.com/bonnie/bonniedotdev/blob/main/client/.eslintrc.json
+
+npm install eslint-plugin-testing-library eslint-plugin-jest-dom
+
 ### comandos
+
 npx create-react-app color-button
 
 ### test
+
 npm test
 
 ### página de testing
+
 https://testing-library.com/docs/dom-testing-library/api-events
 https://testing-library.com/docs/queries/about/#priority
 https://www.w3.org/TR/wai-aria/#role_definitions
-
 
 # Getting Started with Create React App
 

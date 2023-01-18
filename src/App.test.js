@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { logRoles } from '@testing-library/dom';
+import { logRoles } from '@testing-library/react';
 import App from './App';
 import { replaceCamelWithSpaces } from './App';
 
@@ -48,7 +48,7 @@ describe('test antiguos', () => {
   test('probando botón 1 texto', () => {
     render(<App />);
     const boton1 = screen.getByRole('button', { name: "Botón 1"});
-    expect(boton1.textContent).toBe('Botón 1');
+    expect(boton1).toHaveTextContent('Botón 1');
     expect(boton1).toBeEnabled();
   });
   
