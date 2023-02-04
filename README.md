@@ -6,6 +6,7 @@ https://create-react-app.dev/
 
 Testing React with Jest and React Testing Library (RTL)
 react-testing-library
+https://udemy.com/course/react-testing-library
 
 ### para eslint
 
@@ -48,9 +49,22 @@ npm install eslint-plugin-testing-library eslint-plugin-jest-dom
 
 npx create-react-app color-button
 
+### proyecto dos
+
+npx create-react-app sundaes-on-demand
+npm install eslint-plugin-testing-library eslint-plugin-jest-dom
+
 ### test
 
 npm test
+
+### testing-library-utils.jsx para testear con stores
+
+https://testing-library.com/docs/react-testing-library/setup/#custom-render
+
+### awaitFor
+
+https://testing-library.com/docs/dom-testing-library/api-async/#waitfor
 
 ### página de testing
 

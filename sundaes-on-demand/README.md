@@ -8,6 +8,32 @@ npx create-react-app sundaes-on-demand
 npm install eslint-plugin-testing-library eslint-plugin-jest-dom
 npm install react-bootstrap bootstrap
 
+### ejemplo
+
+npm list @testing-library/user-event
+si es la versión 13.5.0
+hay que actualizarla
+npm install --save @testing-library/user-event@^14
+https://react-bootstrap.netlify.app/components/overlays/#popovers
+https://testing-library.com/docs/user-event/intro/
+
+### alerts
+
+https://react-bootstrap.netlify.app/components/alerts/
+
+### ejemplo de queries
+
+https://testing-library.com/docs/react-testing-library/cheatsheet/#queries
+
+### popovers
+
+https://react-bootstrap.github.io/components/overlays/#popovers
+
+### mock service worker setup
+
+https://mswjs.io/docs/getting-started/mocks/rest-api
+npm install msw
+
 ### remover del package.json
 
 "eslintConfig": {
