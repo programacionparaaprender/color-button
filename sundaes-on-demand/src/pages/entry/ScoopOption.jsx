@@ -21,9 +21,8 @@ export default function ScoopOptions({ name, imagePath }) {
     // validate
     setIsValid(valueIsValid);
 
-    // adjust scoop count with currentValue if it's valid; 0 if it's not
-    const newValue = valueIsValid ? parseInt(currentValue) : 0;
-    updateItemCount(name, newValue, "scoops");
+    // only update context if the value is valid
+    if (valueIsValid) updateItemCount(name, parseInt(currentValue), "scoops");
   };
 
   return (
